@@ -28,6 +28,20 @@ class Menu {
      */
     private $menuTmp = array();
     
+    /**
+     * Versão do Bootstrap
+     * @var int [2|3]
+     */
+    private $versao = 2;
+    
+    public function __construct($bootstrap = 2) {
+        if($bootstrap > 2){
+            $this->versao = 3;
+        }else{
+            $this->versao = 2;
+        }
+    }
+    
     
     /**
      * Inclui um item de menu ao menu temporário.
@@ -128,7 +142,7 @@ class Menu {
 
     public function getMenu() {
         $this->montarMenu($this->getArrayMenu());
-        $tplMenu = file_get_contents("menu.phtml");
+        $tplMenu = file_get_contents("menu{$this->versao}.phtml");
         $menu = $this->menuMontado;
         return str_replace("{MENU}", $menu, $tplMenu);
     }
