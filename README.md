@@ -33,7 +33,7 @@ require('Menu.php');
 $menu = new Menu();
 $menu->novoItem("Principal", "home.php")
      ->novoItem("Fornecedor", "fornecedor.php")
-     ->novoItem("Clientes", "cliente.php")->appendMenu();
+     ->novoItem("Clientes", "cliente.php")->addMenu();
 ```
 
 ### Menu com submenu
@@ -42,9 +42,9 @@ require('Menu.php');
 $menu = new Menu();
 $menu->novoItem("Principal", "home.php")
      ->novoItem("Fornecedor", "fornecedor.php")
-     ->novoItem("Clientes")->appendMenu();
+     ->novoItem("Clientes")->addMenu();
 
- $menu->novoItem("Ativos", "clientes-ativos.php")->appendSubmenu();
+ $menu->novoItem("Ativos", "clientes-ativos.php")->addSubmenu();
 ```
 
 ### Menu com submenu e vários níveis
@@ -53,12 +53,12 @@ require('Menu.php');
 $menu = new Menu();
 $menu->novoItem("Principal", "home.php")
      ->novoItem("Fornecedor", "fornecedor.php")
-     ->novoItem("Clientes")->appendMenu();
+     ->novoItem("Clientes")->addMenu();
 
-$menu->novoItem("Ativos", "clientes-ativos.php")->appendSubmenu();
+$menu->novoItem("Ativos", "clientes-ativos.php")->addSubmenu();
 
-$menu->novoItem("Outros Anos")->appendSubmenu();
+$menu->novoItem("Outros Anos")->addSubmenu();
 $menu->novoItem("2013", "clientes-2013.php")
-     ->novoItem("2012", "clientes-2012.php")->appendSubmenu();
+     ->novoItem("2012", "clientes-2012.php")->addSubmenu();
 ```
 
