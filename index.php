@@ -35,27 +35,34 @@
                 <div class="span12">
                     <?php
                         $menu = new Menu();
+                        
                         $menu->novoItem("Principal", "home.php")
                              ->novoItem("Fornecedor", "fornecedor.php")
                              ->novoItem("Clientes")
-                                ->appendMenu();
+                             ->appendMenu();
                         
-                        $menu->novoItem("Novo", "novoCliente.php")
-                             ->novoItem("Listar")
-                                ->appendSubmenu();
+                            //Incluindo um submenu no menu Clientes
+                            $menu->novoItem("Novo", "novoCliente.php")
+                                 ->novoItem("Listar")
+                                 ->appendSubmenu();
                                 
+                                //Incluindo outro submenu, mas agora em Listar
                                 $menu->novoItem("Ativos", "listarClienteAtivo.php")
                                      ->novoItem("Bloqueados")
-                                        ->appendSubmenu();
+                                     ->appendSubmenu();
                                 
+                                //Incluindo outro submenu, agora em Bloqueados
                                 $menu->novoItem("2013", "bloqueados2013.php")
                                      ->novoItem("2014", "bloqueados2014.php")
                                         ->appendSubmenu();
 										
 										
-				$menu->novoItem("Ativos 2")->appendMenu();
-                                $menu->novoItem("Bloqueados")->appendSubmenu();
+                        //Voltando à linha principal. Adiciono outro item no menu principal
+                        $menu->novoItem("Ativos 2")->appendMenu();
+                        //Incluindo um submenu em Ativos 2
+                        $menu->novoItem("Bloqueados")->appendSubmenu();
                         
+                        //Imprimindo o menu na tela
                         echo $menu->getMenu();
                     ?>
                 </div>
