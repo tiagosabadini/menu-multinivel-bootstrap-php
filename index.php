@@ -39,28 +39,30 @@
                         $menu->novoItem("Principal", "home.php")
                              ->novoItem("Fornecedor", "fornecedor.php")
                              ->novoItem("Clientes")
-                             ->appendMenu();
+                             ->addMenu();
                         
                             //Incluindo um submenu no menu Clientes
                             $menu->novoItem("Novo", "novoCliente.php")
                                  ->novoItem("Listar")
-                                 ->appendSubmenu();
+                                 ->addSubmenu();
                                 
                                 //Incluindo outro submenu, mas agora em Listar
                                 $menu->novoItem("Ativos", "listarClienteAtivo.php")
                                      ->novoItem("Bloqueados")
-                                     ->appendSubmenu();
+                                     ->addSubmenu();
                                 
                                 //Incluindo outro submenu, agora em Bloqueados
                                 $menu->novoItem("2013", "bloqueados2013.php")
                                      ->novoItem("2014", "bloqueados2014.php")
-                                        ->appendSubmenu();
-										
+                                        ->addSubmenu();
+                        
+                        //Adicionando uma função JS
+                        $menu->novoItem("Clique aqui", "#", "abrir-janela")->addMenu();
 										
                         //Voltando à linha principal. Adiciono outro item no menu principal
-                        $menu->novoItem("Ativos 2")->appendMenu();
+                        $menu->novoItem("Ativos 2")->addMenu();
                         //Incluindo um submenu em Ativos 2
-                        $menu->novoItem("Bloqueados")->appendSubmenu();
+                        $menu->novoItem("Bloqueados")->addSubmenu();
                         
                         //Imprimindo o menu na tela
                         echo $menu->getMenu();
@@ -69,9 +71,17 @@
             </div>
         </div>
 
-
         <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="jquery-ui/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
         <script src="bootstrap/bootstrap.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    //apenas um exemplo
+                    $('.abrir-janela').click(function(e){
+                        e.preventDefault();
+                        alert("Texto do menu: "+$(this).find('a').text());
+                    });
+                });
+        </script>
     </body>
 </html>
