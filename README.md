@@ -1,11 +1,13 @@
 Menu-Multinivel
 ===============
 Menu com vários subníveis adaptado para trabalhar com o Bootstrap 2.2.1
+
 Utilize qualquer customização do Bootstrap e jQuery UI
 
 ## Estrutura
-A estrutura básica para que o menu funcione 
-Lembrando que você pode usar qualquer customização do bootstrap ou thema do jquery-ui e pode adaptar a estrutura conforme
+A estrutura básica para que o menu funcione.
+
+Lembrando que você pode usar qualquer customização do bootstrap ou tema do jquery-ui e pode adaptar a estrutura conforme
 as necessidades do seu projeto também.
 
 ```
