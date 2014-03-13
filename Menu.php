@@ -22,27 +22,14 @@ class Menu {
      */
     private $menuMontado;
     
-    /**
-     * Controle do índice do menu
-     * @var type 
-     */
-    private $indice;
+    
     private $menuTmp = array();
     
     
     public function __construct() {
-        $this->setIndice(0);
         $this->menuMontado = "";
     }
     
-    public function setIndice($indice){
-        $this->indice = $indice;
-    }
-    public function getIndice(){
-        return $this->indice;
-    }
-    
-
     /**
      * Inclui um item de menu ao menu principal
      * 
