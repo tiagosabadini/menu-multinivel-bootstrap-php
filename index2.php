@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
-        <link href="menuMultinivel3.css" rel="stylesheet">
+        <link href="bootstrap2/bootstrap.min.css" rel="stylesheet">
+        <link href="menuMultinivel2.css" rel="stylesheet">
         <link type="text/css" href="jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
 
 
 
         <meta charset=utf-8 />
-        <title>Menu Multinível com Bootstrap 2, 3 e PHP</title>
+        <title>Menu Multinível com Bootstrap 2 e PHP</title>
         <script>
             (function(i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -30,11 +30,11 @@
     <body>
         <?php require('Menu.php'); ?>
         <div class="container">
-            <h2>Menu Multinível com Bootstrap 2, 3 e PHP</h2>
+            <h2>Menu Multinível com Bootstrap 2 e PHP</h2>
             <div class="row">
                 <div class="span12">
                     <?php
-                        $menu = new Menu(3);
+                        $menu = new Menu();
                         
                         //Menu aberto a todos
                         $menu->novoItem("Principal", "home.php")
@@ -74,7 +74,7 @@
 
         <script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
         <script src="jquery-ui/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-        <script src="bootstrap/bootstrap.min.js" type="text/javascript"></script>
+        <script src="bootstrap2/bootstrap.min.js" type="text/javascript"></script>
         <script type="text/javascript">
                 $(document).ready(function(){
                     //apenas um exemplo

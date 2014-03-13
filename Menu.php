@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Tiago Sabadini <sabadini.tiago@gmail.com>
  * @copyright (c) 2014, Tiago Sabadini
@@ -15,34 +16,38 @@ class Menu {
      * @var array 
      */
     private $arrayMenu = array();
-    
+
     /**
      * String com o menu montado
      * @var string 
      */
     private $menuMontado = "";
-    
+
     /**
      * Armazena temporariamente os itens do menu
      * @var array 
      */
     private $menuTmp = array();
-    
+
     /**
      * Versão do Bootstrap
      * @var int [2|3]
      */
-    private $versao = 2;
+    private $versaoBootstrap = 2;
+
     
-    public function __construct($bootstrap = 2) {
-        if($bootstrap > 2){
-            $this->versao = 3;
-        }else{
-            $this->versao = 2;
+    /**
+     * Confirgura a versão do bootstrap que será usada
+     * @param int $versao
+     */
+    public function setBootstrap($versao = 2) {
+        if ($versao > 2) {
+            $this->versaoBootstrap = 3;
+        } else {
+            $this->versaoBootstrap = 2;
         }
     }
-    
-    
+
     /**
      * Inclui um item de menu ao menu temporário.
      * O menu temporário é incrementado até que appendMenu seja utilizado
@@ -59,46 +64,46 @@ class Menu {
         $this->menuTmp[] = array(
             'nome' => $nome,
             'link' => $link,
-            'class' => ($class!="") ? "class='{$class}'" : "",
-            'id' => ($id!="") ? "id='{$id}'" : "",
-            'title' => ($title!="") ? "title='{$title}'" : "",
-            'target' => ($target!="") ? "target='{$target}'" : "",
-            'rel' => ($rel!="") ? "rel='{$rel}'" : ""
+            'class' => ($class != "") ? "class='{$class}'" : "",
+            'id' => ($id != "") ? "id='{$id}'" : "",
+            'title' => ($title != "") ? "title='{$title}'" : "",
+            'target' => ($target != "") ? "target='{$target}'" : "",
+            'rel' => ($rel != "") ? "rel='{$rel}'" : ""
         );
         return $this;
     }
-    
+
     /**
      * Recupera o conteúdo do menu temporário e
      * adiciona ao menu principal
      */
-    public function addMenu(){
-        foreach($this->menuTmp as $mT){
+    public function addMenu() {
+        foreach ($this->menuTmp as $mT) {
             $this->arrayMenu[] = $mT;
         }
         $this->menuTmp = array();
     }
-    
+
     /**
      * 
      * @param array $menu
      * @param array $submenu
      */
-    private function addItemSubmenu(&$menu, $submenu){
+    private function addItemSubmenu(&$menu, $submenu) {
         end($menu);
         $chave = key($menu);
-        if(!isset($menu[$chave]['submenu'])){
+        if (!isset($menu[$chave]['submenu'])) {
             $menu[$chave]['submenu'] = $submenu;
-        }else{
+        } else {
             $this->addItemSubmenu($menu[$chave]['submenu'], $submenu);
         }
     }
-    
+
     /**
      * Adiciona um item ao submenu do indice ativo do menu
      * @return \Menu
      */
-    public function addSubmenu(){
+    public function addSubmenu() {
         $this->addItemSubmenu($this->arrayMenu, $this->menuTmp);
         $this->menuTmp = array();
         return $this;
@@ -131,8 +136,8 @@ class Menu {
             }
         }
     }
-    
-    public function getArrayMenu(){
+
+    public function getArrayMenu() {
         return $this->arrayMenu;
     }
 
@@ -142,10 +147,11 @@ class Menu {
 
     public function getMenu() {
         $this->montarMenu($this->getArrayMenu());
-        $tplMenu = file_get_contents("menu{$this->versao}.phtml");
+        $tplMenu = file_get_contents("menu{$this->versaoBootstrap}.phtml");
         $menu = $this->menuMontado;
         return str_replace("{MENU}", $menu, $tplMenu);
     }
+
 }
 ?>
 
