@@ -6,7 +6,6 @@ Menu com vários subníveis adaptado para trabalhar com o Bootstrap 2.2.1
 Exemplo
 -------
 
-<?php 
     require('Menu.php'); 
 
     Menu simples sem submenu
@@ -24,5 +23,3 @@ Exemplo
          ->novoItem("Clientes")->appendMenu();
 
      $menu->novoItem("Ativos", "clientes-ativos.php")->appendSubmenu();
-
-?>
