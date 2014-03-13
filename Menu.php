@@ -20,18 +20,18 @@ class Menu {
      * String com o menu montado
      * @var string 
      */
-    private $menuMontado;
+    private $menuMontado = "";
     
-    
+    /**
+     * Armazena temporariamente os itens do menu
+     * @var array 
+     */
     private $menuTmp = array();
     
     
-    public function __construct() {
-        $this->menuMontado = "";
-    }
-    
     /**
-     * Inclui um item de menu ao menu principal
+     * Inclui um item de menu ao menu temporário.
+     * O menu temporário é incrementado até que appendMenu seja utilizado
      * 
      * @param string $nome Nome do item, título  tag <a>
      * @param string $link Destino do item tag <a>
@@ -54,13 +54,22 @@ class Menu {
         return $this;
     }
     
-    public function appendMenu(){
+    /**
+     * Recupera o conteúdo do menu temporário e
+     * adiciona ao menu principal
+     */
+    public function addMenu(){
         foreach($this->menuTmp as $mT){
             $this->arrayMenu[] = $mT;
         }
         $this->menuTmp = array();
     }
     
+    /**
+     * 
+     * @param array $menu
+     * @param array $submenu
+     */
     private function addItemSubmenu(&$menu, $submenu){
         end($menu);
         $chave = key($menu);
@@ -71,12 +80,22 @@ class Menu {
         }
     }
     
-    public function appendSubmenu(){
+    /**
+     * Adiciona um item ao submenu do indice ativo do menu
+     * @return \Menu
+     */
+    public function addSubmenu(){
         $this->addItemSubmenu($this->arrayMenu, $this->menuTmp);
         $this->menuTmp = array();
         return $this;
     }
 
+    /**
+     * Monta o menu em forma de string
+     * @param array $menu
+     * @param int $nivel
+     * @param int $itens
+     */
     public function montarMenu($menu = null, $nivel = 0, $itens = 0) {
         foreach ($menu as $mn) {
             if (isset($mn['submenu']) && !is_null($mn['submenu'])) {
