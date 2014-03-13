@@ -7,21 +7,21 @@ Exemplo
 -------
 
 <?php 
-require('Menu.php'); 
+    require('Menu.php'); 
 
-Menu simples sem submenu
-$menu = new Menu();
-$menu->novoItem("Principal", "home.php")
-     ->novoItem("Fornecedor", "fornecedor.php")
-     ->novoItem("Clientes", "cliente.php")->appendMenu();
+    Menu simples sem submenu
+    $menu = new Menu();
+    $menu->novoItem("Principal", "home.php")
+         ->novoItem("Fornecedor", "fornecedor.php")
+         ->novoItem("Clientes", "cliente.php")->appendMenu();
 
 
 
-Menu com submenu
-$menu = new Menu();
-$menu->novoItem("Principal", "home.php")
-     ->novoItem("Fornecedor", "fornecedor.php")
-     ->novoItem("Clientes")->appendMenu();
+    Menu com submenu
+    $menu = new Menu();
+    $menu->novoItem("Principal", "home.php")
+         ->novoItem("Fornecedor", "fornecedor.php")
+         ->novoItem("Clientes")->appendMenu();
 
      $menu->novoItem("Ativos", "clientes-ativos.php")->appendSubmenu();
 
