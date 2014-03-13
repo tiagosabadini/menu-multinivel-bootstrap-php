@@ -1,7 +1,29 @@
 Menu-Multinivel
 ===============
 Menu com vários subníveis adaptado para trabalhar com o Bootstrap 2.2.1
+Utilize qualquer customização do Bootstrap e jQuery UI
 
+## Estrutura
+A estrutura básica para que o menu funcione 
+Lembrando que você pode usar qualquer customização do bootstrap ou thema do jquery-ui e pode adaptar a estrutura conforme
+as necessidades do seu projeto também.
+
+```
+|-- bootstrap/
+|   |-- bootstrap.min.css
+|   |-- bootstrap.min.js
+|-- img/
+|   |-- glyphicons-halflings-white.png
+|   |-- glyphicons-halflings.png
+|-- jquery-ui/
+|   |-- css/
+|   |-- js/
+|-- js/
+|   |-- jquery-1.10.1.min.js
+|-- Menu.php
+|-- menu.phtml
+`-- menuMultinivel.css
+```
 
 ### Exemplo de Menu simples sem submenu
 ```
@@ -37,3 +59,4 @@ $menu->novoItem("Outros Anos")->appendSubmenu();
 $menu->novoItem("2013", "clientes-2013.php")
      ->novoItem("2012", "clientes-2012.php")->appendSubmenu();
 ```
+
