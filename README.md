@@ -1,5 +1,9 @@
-Menu-Multinivel
+Menu-Multinivel (arquivado)
 ===============
+Este projeto foi utilizado em diversos projetos em PHP há alguns anos. Hoje permanece aqui apenas para contar a história.
+
+---
+
 Menu com vários subníveis adaptado para trabalhar com o Bootstrap 2 e 3
 Utilize qualquer customização do Bootstrap e jQuery UI
 
